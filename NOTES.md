@@ -16,8 +16,9 @@ win). Hindi is hard because its pauses are short, so the silence timer is alread
 strong, and the decisive end-of-turn cue — the sentence-final verb (Hindi is
 SOV) — is semantic and unavailable without ASR, which the rules forbid. The
 residual failures are true ends with flat/ambiguous prosody that score low and
-time out, and long hesitation-holds ("aurrr…") that occasionally score high. With
-one more day: confirm `librosa.pyin` pitch tracking for Hindi (preliminary tests
-suggest ~25 ms, since Hindi is pitch-dominated — terminal F0-fall separation
-d=−0.54, the strongest cue in either language), gather more Hindi turns, and
-explore coupling the per-language score with a per-language silence-timer prior.
+time out, and long hesitation-holds ("aurrr…") that occasionally score high. A paired test swapping in `librosa.pyin` pitch tracking for Hindi (motivated by
+its dominant cue, terminal F0-fall, d=−0.54) gave ~799±36 ms vs ~824±25 ms for
+the shipped autocorr tracker — a real-direction but modest gain (pyin won 8/12
+seeds, noisier, and ~10× slower), so it was not adopted for the final model. With
+one more day: revisit that pyin trade-off with more seeds/data, gather more
+Hindi turns, and explore a per-language silence-timer prior.
