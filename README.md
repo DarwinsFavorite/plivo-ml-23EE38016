@@ -24,7 +24,7 @@ Metric = mean response delay at ≤5% false-cutoff rate (lower is better). See
 python -m venv .venv && source .venv/bin/activate
 pip install numpy scipy scikit-learn pandas librosa joblib
 python predict.py --data_dir <folder> --out predictions.csv
-# then score with the assignment's official scorer:
+# then score with the assignment's official scorer (starter/score.py from the handout):
 python score.py --data_dir <folder> --pred predictions.csv
 ```
 Retrain the saved model (`eot_model.joblib`) with `python train_model.py` (needs
